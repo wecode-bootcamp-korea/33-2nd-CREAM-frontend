@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styled from 'styled-components';
 import { API } from '../../config';
 
@@ -9,21 +10,16 @@ const Redirect = () => {
   const navigate = useNavigate();
 
   const getToken = () => {
-    fetch(`${API.KAKAO_LOGIN}?code=${code}`, {
-      method: 'GET',
-    })
-      .then(res => {
-        if (res.status === 200) {
-          return res.json();
-        } else {
-          navigate('/login');
-          alert('다시 로그인 해주세요');
-        }
-      })
-      .then(data => {
-        localStorage.setItem('cream_token', data.cream_token);
+    const url = `${API.KAKAO_LOGIN}?code=${code}`;
+    axios.get(url).then(res => {
+      if (res.status === 200) {
+        localStorage.setItem('access_token', res.data.access_token);
         navigate('/');
-      });
+      } else {
+        navigate('/login');
+        alert('다시 로그인 해주세요');
+      }
+    });
   };
 
   useEffect(() => {
