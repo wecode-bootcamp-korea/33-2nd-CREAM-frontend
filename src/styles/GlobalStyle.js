@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-family: 'Viga', sans-serif;
   }
+
 `;
 
 export default GlobalStyle;
