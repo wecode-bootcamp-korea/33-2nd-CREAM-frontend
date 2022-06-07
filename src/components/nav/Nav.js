@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 const Nav = () => {
   const [isLogin, setIsLogin] = useState(false);
-  const creamToken = localStorage.getItem('cream_token');
+  const creamToken = localStorage.getItem('access_token');
+  const navigate = useNavigate();
 
   useEffect(() => {
     creamToken && setIsLogin(true);
-  }, []);
+  }, [creamToken, isLogin]);
+
+  const logout = () => {
+    localStorage.removeItem('access_token');
+    alert('로그아웃 되었습니다');
+    setIsLogin(false);
+  };
 
   return (
     <Container>
@@ -16,7 +24,23 @@ const Nav = () => {
         <Button>STYLE</Button>
         <Button>SHOP</Button>
         <Button>ABOUT</Button>
-        {isLogin ? <Button>MYPAGE</Button> : <Button login>LOGIN</Button>}
+        {isLogin ? (
+          <>
+            <Button>MYPAGE</Button>
+            <Button logout onClick={logout}>
+              LOGOUT
+            </Button>
+          </>
+        ) : (
+          <Button
+            login
+            onClick={() => {
+              navigate('/login');
+            }}
+          >
+            LOGIN
+          </Button>
+        )}
       </ButtonContainer>
     </Container>
   );
@@ -45,11 +69,16 @@ const Button = styled.button`
   background: none;
   cursor: pointer;
 
-  ${props =>
-    props.login &&
-    `
-  color: gray;
-  `}
+  ${({ login, theme, logout }) => {
+    if (login) {
+      return css`
+        color: ${theme.colors.green};
+        font-weight: ${theme.fontWeights.semiBold};
+      `;
+    } else if (logout) {
+      return `color: ${theme.colors.gray};`;
+    }
+  }}
 `;
 
 export default Nav;

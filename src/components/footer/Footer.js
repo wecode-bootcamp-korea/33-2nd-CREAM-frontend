@@ -34,6 +34,7 @@ const FooterContainer = styled.footer`
 `;
 
 const FooterIcons = styled.div`
+  cursor: pointer;
   svg {
     margin-right: ${props => props.theme.margins.large};
     margin-bottom: ${props => props.theme.margins.xxl};
@@ -41,10 +42,6 @@ const FooterIcons = styled.div`
 
     &:last-child {
       margin-right: 0;
-    }
-
-    &:hover {
-      cursor: pointer;
     }
   }
 `;
