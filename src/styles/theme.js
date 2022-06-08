@@ -21,8 +21,9 @@ const fontWeights = {
 };
 
 const paddings = {
-  small: calcRem(4),
-  base: calcRem(8),
+  xs: calcRem(4),
+  small: calcRem(8),
+  base: calcRem(12),
   large: calcRem(16),
   xl: calcRem(20),
   xxl: calcRem(24),
@@ -30,8 +31,9 @@ const paddings = {
 };
 
 const margins = {
-  small: calcRem(4),
-  base: calcRem(8),
+  xs: calcRem(4),
+  small: calcRem(8),
+  base: calcRem(12),
   large: calcRem(16),
   xl: calcRem(20),
   xxl: calcRem(24),
