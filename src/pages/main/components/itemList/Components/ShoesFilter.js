@@ -1,0 +1,32 @@
+const SHOES_FILTER = {
+  categoryName: '신발 사이즈',
+  categoryList: [
+    { id: 1, name: '215' },
+    { id: 2, name: '220' },
+    { id: 3, name: '225' },
+    { id: 4, name: '230' },
+    { id: 5, name: '235' },
+    { id: 6, name: '240' },
+    { id: 7, name: '245' },
+    { id: 8, name: '250' },
+    { id: 9, name: '255' },
+    { id: 10, name: '260' },
+    { id: 11, name: '265' },
+    { id: 12, name: '270' },
+    { id: 13, name: '275' },
+    { id: 14, name: '280' },
+    { id: 15, name: '285' },
+    { id: 16, name: '290' },
+    { id: 17, name: '295' },
+    { id: 18, name: '300' },
+    { id: 19, name: '305' },
+    { id: 20, name: '310' },
+    { id: 21, name: '315' },
+    { id: 22, name: '320' },
+    { id: 23, name: '325' },
+    { id: 24, name: '330' },
+  ],
+  categoryKey: 'shoe_size',
+};
+
+export default SHOES_FILTER;
