@@ -5,10 +5,12 @@ import Main from './pages/main/Main';
 import ItemList from './pages/main/components/itemList/ItemList';
 import Footer from './components/footer/Footer';
 import Buy from './pages/deals/Buy';
+import Nav from './components/nav/Nav';
 
 function Router() {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/goodsdetail" element={<GoodsDetail />} />
