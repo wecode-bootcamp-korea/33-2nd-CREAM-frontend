@@ -27,10 +27,8 @@ const Footer = () => {
 export default Footer;
 
 const FooterContainer = styled.footer`
-  margin-top: 10rem;
   padding-top: ${props => props.theme.paddings.xxxl};
   text-align: center;
-  border-top: 1px solid #cecece;
 `;
 
 const FooterIcons = styled.div`

@@ -7,10 +7,11 @@ const PriceCondition = () => {
   const [graphData, setgraphData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/graphData.json')
+    // fetch('/data/graphData.json')
+    fetch('http://13.125.248.213:8000/products/1/orders')
       .then(res => res.json())
       .then(res => {
-        setgraphData(res);
+        setgraphData(res.orders);
       });
   }, []);
 
