@@ -1,14 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
 import Carousel from './components/carousel/Carousel';
 import ItemList from './components/itemList/ItemList';
 
 function Main() {
   return (
-    <div>
+    <MainWrapper>
       <Carousel />
       <ItemList />
-    </div>
+    </MainWrapper>
   );
 }
+
+const MainWrapper = styled.div`
+  margin-top: 5rem;
+`;
 
 export default Main;

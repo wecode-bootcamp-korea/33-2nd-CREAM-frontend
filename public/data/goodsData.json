@@ -1,14 +1,18 @@
 [
   {
     "id": 1,
-    "name_eng": "Nike x Kasina Air Max 1 SP Won-Ang Orange",
-    "name_kor": "나이키 x 카시나 에어맥스 1 SP 원앙 오렌지",
+    "eng_name": "Nike x Kasina Air Max 1 SP Won-Ang Orange",
+    "kor_name": "나이키 x 카시나 에어맥스 1 SP 원앙 오렌지",
+    "recent_sale_price": "233,000",
     "model_number": "DQ8475-800",
     "release_date": "22/06/08",
     "release_price": "199,000",
-    "recent_sale_price": "233,000",
-    "immediately_sell_price": "255,500",
-    "immediately_buy_price": "250,000",
-    "img_url": "https://kream-phinf.pstatic.net/MjAyMjA1MjNfMjM2/MDAxNjUzMjY5NjY2Mzc0.DIfod20qxTPNwnDSCyPiu-VV0YtX2WVnkJ8VxTxmEiYg.dg2W6KLq7Hh3Oxkwnu7g4KsMHqNW-T764L95LisctUMg.PNG/a_1ee174931e9548acb77c6537a10845f8.png?type=l_webp"
+    "sell_now_price": "255,500",
+    "buy_now_price": "250,000",
+    "image_list": [
+      "https://velog.velcdn.com/images/stresszero/post/7e2de594-52bd-4a69-be6f-eb35136fe84c/image.jpg",
+      "https://velog.velcdn.com/images/stresszero/post/37b1ef5d-650c-4b51-94e3-4397568bb6fb/image.jpg",
+      "https://velog.velcdn.com/images/stresszero/post/9f1774dd-9be9-4392-875d-de8506b8a3c5/image.jpg"
+    ]
   }
 ]

@@ -14,7 +14,7 @@ const Redirect = () => {
     axios.get(url).then(res => {
       if (res.status === 200) {
         localStorage.setItem('access_token', res.data.access_token);
-        navigate('/');
+        navigate('/products');
       } else {
         navigate('/login');
         alert('다시 로그인 해주세요');

@@ -4,22 +4,22 @@ import styled from 'styled-components';
 import { VscTriangleDown, VscTriangleUp, VscBookmark } from 'react-icons/vsc';
 
 const GoodsSummary = ({ data }) => {
-  const { name_eng, name_kor, recent_sale_price } = data;
+  const { eng_name, kor_name, recent_price } = data;
 
   const navigate = useNavigate();
 
   const goToDeal = e => {
     if (e.target.value === '구매') {
-      navigate('/buy');
+      navigate('buy');
     } else if (e.target.value === '판매') {
-      navigate('/sell');
+      navigate('sell');
     }
   };
 
   return (
     <SummaryWrapper>
-      <GoodsNameEng>{name_eng}</GoodsNameEng>
-      <GoodsNameKor>{name_kor}</GoodsNameKor>
+      <GoodsNameEng>{eng_name}</GoodsNameEng>
+      <GoodsNameKor>{kor_name}</GoodsNameKor>
       <GoodsSize>
         <GoodsSizeLabel>사이즈</GoodsSizeLabel>
         <GoodsSizeSelect>
@@ -32,7 +32,7 @@ const GoodsSummary = ({ data }) => {
       <GoodsPriceWrapper>
         <RecentPriceLabel>최근 거래가</RecentPriceLabel>
         <RecentPriceWrapper>
-          <RecentPrice>{recent_sale_price}원</RecentPrice>
+          <RecentPrice>{recent_price}원</RecentPrice>
           <PriceAmountWrapper>
             <PriceAmountIcon />
             <PriceAmount>24,000원 (+10.5%)</PriceAmount>
@@ -41,12 +41,7 @@ const GoodsSummary = ({ data }) => {
       </GoodsPriceWrapper>
       <DealBtnsWrapper>
         {SALES_BUTTON.map(btnData => (
-          <SalesButton
-            key={btnData.id}
-            backgroundColor={btnData.color}
-            onClick={goToDeal}
-            value={btnData.name}
-          >
+          <SalesButton key={btnData.id} onClick={goToDeal} value={btnData.name}>
             <BtnsName>{btnData.name}</BtnsName>
             <BtnsPrcieWrapper>
               <BtnsPriceText>{btnData.price}원</BtnsPriceText>
@@ -164,7 +159,6 @@ const SalesButton = styled.button`
   height: 3.75rem;
   padding: 0;
   color: ${props => props.theme.colors.white};
-  // background-color: ${props => props.backgroundColor};
   background-color: ${({ value, theme }) =>
     value === '구매' ? theme.colors.red : theme.colors.green};
   border: none;

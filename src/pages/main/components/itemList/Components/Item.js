@@ -1,13 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Item = ({ eng_name, kor_name, price, thumbnail_url }) => {
+const Item = ({ eng_name, kor_name, price, thumbnail_url, productId }) => {
+  const navigate = useNavigate();
+
   const getRandomNumber = max => {
     return (Math.random() * max).toFixed(1);
   };
 
+  const goToDetail = () => {
+    navigate(`/products/${productId}`);
+  };
+
   return (
-    <ItemComponent>
+    <ItemComponent onClick={goToDetail}>
       <ItemImg src={thumbnail_url} />
       <ItemTitle>
         <Description>

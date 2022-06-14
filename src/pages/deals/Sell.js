@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import SizeButtons from './components/SizeButtons';
-import SelectDealType from './components/SelectDealType';
+import SellSizeButtons from './components/sell/SellSizeButtons';
+import SellDealType from './components/sell/SellDealType';
 import { BASE_URL } from '../../config';
 
-const Buy = () => {
+const Sell = () => {
   const [goodsInfo, setGoodsInfo] = useState([]);
   const [selectedSize, setSelectedSize] = useState('');
   const { id } = useParams();
@@ -26,7 +26,7 @@ const Buy = () => {
   return (
     <DealsBackground>
       <ContentsWrapper>
-        <PageTitle>구매하기</PageTitle>
+        <PageTitle>판매하기</PageTitle>
         {Object.values(goodsInfo).map(goodsData => (
           <GoodsInfoWrapper key={goodsData.id}>
             <GoodsImageWrapper>
@@ -42,11 +42,11 @@ const Buy = () => {
             </GoodsTextWrapper>
           </GoodsInfoWrapper>
         ))}
-        <SizeButtons
+        <SellSizeButtons
           selectedSize={selectedSize}
           handlePostSize={handlePostSize}
         />
-        <SelectDealType selectedSize={selectedSize} />
+        <SellDealType selectedSize={selectedSize} />
       </ContentsWrapper>
     </DealsBackground>
   );
@@ -117,4 +117,4 @@ const GoodsNameKor = styled.p`
   font-weight: ${props => props.theme.fontWeights.regular};
 `;
 
-export default Buy;
+export default Sell;

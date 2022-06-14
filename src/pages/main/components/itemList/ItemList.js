@@ -275,6 +275,7 @@ const ItemList = () => {
                       kor_name={kor_name}
                       price={price}
                       thumbnail_url={thumbnail_url}
+                      productId={product_id}
                     />
                   );
                 })}

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import BiddingPrice from './BiddingPrice';
-import DirectBuy from './DirectBuy';
-import { BASE_URL } from '../../../config';
+import DirectSell from '../sell/DirectSell';
+import SellBiddingPrice from '../sell/SellBiddingPrice';
+import { BASE_URL } from '../../../../config';
 
-const SelectDealType = ({ selectedSize }) => {
-  const [isSelected, setIsSelected] = useState('즉시 구매');
+const SellDealType = ({ selectedSize }) => {
+  const [isSelected, setIsSelected] = useState('즉시 판매');
   const [directPrice, setDirectPrice] = useState({});
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const SelectDealType = ({ selectedSize }) => {
         price: inputValue,
       }),
     });
-    alert('성공적으로 구매 입찰되었습니다.');
+    alert('성공적으로 판매 입찰되었습니다.');
     navigate(`/products`);
   };
 
@@ -71,10 +71,10 @@ const SelectDealType = ({ selectedSize }) => {
           </DealTypeBtnContainer>
         ))}
       </DealTypeWrapper>
-      {isSelected === '즉시 구매' ? (
-        <DirectBuy />
+      {isSelected === '즉시 판매' ? (
+        <DirectSell />
       ) : (
-        <BiddingPrice
+        <SellBiddingPrice
           getPriceValue={getPriceValue}
           postWhenSubmit={postWhenSubmit}
           inputValue={inputValue}
@@ -136,7 +136,7 @@ const DealTypeButton = styled.button`
   // background-color: transparent;
   background-color: ${props => {
     if (props.focused === 'focused') {
-      return props.theme.colors.red;
+      return props.theme.colors.green;
     } else {
       return 'transparent';
     }
@@ -144,7 +144,7 @@ const DealTypeButton = styled.button`
   ${({ focused, theme }) => {
     if (focused === 'focused') {
       return css`
-        background-color: ${theme.colors.red};
+        background-color: ${theme.colors.green};
         color: ${theme.colors.white};
       `;
     } else {
@@ -161,12 +161,12 @@ const DealTypeButton = styled.button`
 const DEAL_TYPE = [
   {
     id: 1,
-    name: '구매 입찰',
+    name: '판매 입찰',
   },
   {
     id: 2,
-    name: '즉시 구매',
+    name: '즉시 판매',
   },
 ];
 
-export default SelectDealType;
+export default SellDealType;

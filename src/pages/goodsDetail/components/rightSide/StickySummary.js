@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { VscBookmark } from 'react-icons/vsc';
 
 const StickySummary = ({ data }) => {
-  const { name_eng, name_kor, img_url } = data;
+  const { eng_name, kor_name, image_list } = data;
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
   const navigate = useNavigate();
@@ -38,38 +38,40 @@ const StickySummary = ({ data }) => {
   });
 
   return (
-    <SummaryWrapper visible={`${scrollActive ? 'yes' : 'no'}`}>
-      <GoodsInfoWrapper>
-        <GoodsImageWrapper>
-          <GoodsImage src={img_url} alt={name_eng} />
-        </GoodsImageWrapper>
-        <GoodsTextWrapper>
-          <GoodsNameEng>{name_eng}</GoodsNameEng>
-          <GoodsNameKor>{name_kor}</GoodsNameKor>
-        </GoodsTextWrapper>
-      </GoodsInfoWrapper>
-      <DealBtnsWrapper>
-        <BookmarkBtnsWrapper>
-          <BookmarkIcon />
-          <BookmarkBtnsNums>5,719</BookmarkBtnsNums>
-        </BookmarkBtnsWrapper>
-        <SalesBtnsWapper>
-          {SALES_BUTTON.map(btnData => (
-            <SalesButton
-              key={btnData.id}
-              backgroundColor={btnData.color}
-              onClick={goToDeal}
-            >
-              <BtnsName>{btnData.name}</BtnsName>
-              <BtnsPrcieWrapper>
-                <BtnsPriceText>{btnData.price}원</BtnsPriceText>
-                <BtnsPriceState>즉시 {btnData.name}가</BtnsPriceState>
-              </BtnsPrcieWrapper>
-            </SalesButton>
-          ))}
-        </SalesBtnsWapper>
-      </DealBtnsWrapper>
-    </SummaryWrapper>
+    <div>
+      <SummaryWrapper visible={`${scrollActive ? 'yes' : 'no'}`}>
+        <GoodsInfoWrapper>
+          <GoodsImageWrapper>
+            <GoodsImage src={image_list[0]} alt={eng_name} />
+          </GoodsImageWrapper>
+          <GoodsTextWrapper>
+            <GoodsNameEng>{eng_name}</GoodsNameEng>
+            <GoodsNameKor>{kor_name}</GoodsNameKor>
+          </GoodsTextWrapper>
+        </GoodsInfoWrapper>
+        <DealBtnsWrapper>
+          <BookmarkBtnsWrapper>
+            <BookmarkIcon />
+            <BookmarkBtnsNums>5,719</BookmarkBtnsNums>
+          </BookmarkBtnsWrapper>
+          <SalesBtnsWapper>
+            {SALES_BUTTON.map(btnData => (
+              <SalesButton
+                key={btnData.id}
+                backgroundColor={btnData.color}
+                onClick={goToDeal}
+              >
+                <BtnsName>{btnData.name}</BtnsName>
+                <BtnsPrcieWrapper>
+                  <BtnsPriceText>{btnData.price}원</BtnsPriceText>
+                  <BtnsPriceState>즉시 {btnData.name}가</BtnsPriceState>
+                </BtnsPrcieWrapper>
+              </SalesButton>
+            ))}
+          </SalesBtnsWapper>
+        </DealBtnsWrapper>
+      </SummaryWrapper>
+    </div>
   );
 };
 
@@ -79,9 +81,9 @@ const SummaryWrapper = styled.div`
   padding: ${props => props.theme.paddings.base}
     ${props => props.theme.paddings.xxxl} ${props => props.theme.paddings.large};
   background-color: ${props => props.theme.colors.white};
-  box-shadow: 4px 0 10px 0 rgb(0 0 0 / 10%);
-  position: sticky;
-  top: 0;
+  box-shadow: 0 4px 8px -2px rgb(0 0 0 / 10%);
+  position: fixed;
+  top: 4.25rem;
   z-index: 1000;
 
   display: ${props => {
@@ -104,10 +106,12 @@ const GoodsImageWrapper = styled.div`
   text-align: center;
   margin-right: ${props => props.theme.paddings.base};
   border-radius: 0.75rem;
+  overflow: hidden;
 `;
 
 const GoodsImage = styled.img`
-  width: 80%;
+  width: 120%;
+  object-fit: cover;
 `;
 
 const GoodsTextWrapper = styled.div`

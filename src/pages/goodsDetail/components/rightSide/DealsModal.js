@@ -12,16 +12,18 @@ const DealsModal = () => {
   };
 
   useEffect(() => {
-    fetch('/data/goodsData.json')
+    // fetch('/data/goodsData.json')
+    fetch('http://13.125.248.213:8000/products/1')
       .then(res => res.json())
       .then(res => setGoodsData(res));
   }, []);
 
   useEffect(() => {
-    fetch('/data/graphData.json')
+    // fetch('/data/graphData.json')
+    fetch('http://13.125.248.213:8000/products/1/orders')
       .then(res => res.json())
       .then(res => {
-        setgraphData(res);
+        setgraphData(res.orders);
       });
   }, []);
 
@@ -36,13 +38,13 @@ const DealsModal = () => {
           <ModalView>
             <ModalTitle>시세</ModalTitle>
             <ModalGoodsWrapper>
-              {goodsData.map(data => (
+              {Object.values(goodsData).map(data => (
                 <ModalGoodsInfo key={data.id}>
-                  <ModalGoodsImg src={data.img_url} />
+                  <ModalGoodsImg src={data.image_list[0]} />
                   <ModalGoodsInfoWrap>
                     <ModalGoodsInfoTextWrap>
-                      <ModalGoodsNameEng>{data.name_eng}</ModalGoodsNameEng>
-                      <ModalGoodsNameKor>{data.name_kor}</ModalGoodsNameKor>
+                      <ModalGoodsNameEng>{data.eng_name}</ModalGoodsNameEng>
+                      <ModalGoodsNameKor>{data.kor_name}</ModalGoodsNameKor>
                     </ModalGoodsInfoTextWrap>
                     <GoodsSizeSelect>
                       <SizeSelectText>모든 사이즈</SizeSelectText>
@@ -219,7 +221,9 @@ const GraphTabBtn = styled.button`
 
 const GraphItemWraper = styled.ul`
   width: 26rem;
+  height: 21.25rem;
   padding: ${props => props.theme.paddings.xl} 0;
+  overflow: hidden;
 `;
 
 const GraphItemLabel = styled.li`

@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const LeftContents = ({ data }) => {
-  const { img_url, name_eng } = data;
+  const { image_list, eng_name } = data;
 
   return (
     <LeftContentsWrapper>
       <GoodsImageWrapper>
-        <GoodsImage src={img_url} alt={name_eng} />
+        <GoodsImage src={image_list[0]} alt={eng_name} />
       </GoodsImageWrapper>
       <DealNotice>
         <NoticeWrapper>
@@ -25,20 +25,22 @@ const LeftContents = ({ data }) => {
 };
 
 const LeftContentsWrapper = styled.aside`
+  // ${props => props.theme.flex.flexBox('column', '', '')};
   width: 37.5rem;
-  ${props => props.theme.flex.flexBox('column', '', '')};
-  float: left;
-  position: fixed;
   padding-right: ${props => props.theme.paddings.xxxl};
 `;
 
 const GoodsImageWrapper = styled.div`
+  width: 35rem;
+  height: 35rem;
   background-color: ${props => props.theme.colors.lightGray};
   text-align: center;
+  overflow: hidden;
 `;
 
 const GoodsImage = styled.img`
-  width: 80%;
+  width: 130%;
+  object-fit: cover;
 `;
 
 const DealNotice = styled.div`
