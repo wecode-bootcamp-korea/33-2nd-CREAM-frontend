@@ -1,37 +1,15 @@
 import React, { useEffect, useState } from 'react';
-// import { API } from '../../../src/config.js';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = () => {
   const [isLogin, setIsLogin] = useState(false);
   const creamToken = localStorage.getItem('cream_token');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     creamToken && setIsLogin(true);
   }, []);
-
-  // 마이페이지 제작 후 처리할 로직
-  // const goToMypage = () => {
-  //   creamToken
-  //     ? fetch(`${API.USERS}`, {
-  //         method: 'GET',
-  //         headers: {
-  //           Authorization: creamToken,
-  //         },
-  //       })
-  //         .then(res => {
-  //           if (res.ok) {
-  //             return res.json();
-  //           }
-  //         })
-  //         .then(() => {
-  //           console.log('');
-  //           navigate('/마이페이지');
-  //         })
-  //     : navigate(`/login`);
-  // };
 
   return (
     <Container>
@@ -41,15 +19,16 @@ const Nav = () => {
         <Button>SHOP</Button>
         <Button>ABOUT</Button>
         {isLogin ? (
-          <Button
-          // onClick={() => {
-          //   goToMypage();
-          // }}
-          >
-            MYPAGE
-          </Button>
+          <Button>MYPAGE</Button>
         ) : (
-          <Button login>LOGIN</Button>
+          <Button
+            login
+            onClick={() => {
+              navigate('/login');
+            }}
+          >
+            LOGIN
+          </Button>
         )}
       </ButtonContainer>
     </Container>
