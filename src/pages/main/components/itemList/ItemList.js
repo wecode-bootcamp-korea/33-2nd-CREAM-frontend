@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { BASE_URL } from '../../../../config';
 import Item from './Components/Item';
 import SearchBar from './Components/SearchBar';
 import ItemNotFound from './Components/ItemNotFound';
@@ -69,6 +70,14 @@ const ItemList = () => {
       .map(e => `&apparel_size=${e.name}`)
       .join('');
 
+    const fetchData = async () => {
+      const response = await fetch(
+        `${BASE_URL}products?${categoryString}${priceString}${shoeSizeString}${clothString}&search=${userInput}&sort=${optionValue}${loadQueryString}`
+      );
+      const data = await response.json();
+      await setProductsList(data.product_list);
+    };
+    fetchData();
     fetch(
       `${BASE_URL}products?${categoryString}${priceString}${shoeSizeString}${clothString}&search=${userInput}&sort=${optionValue}${loadQueryString}`,
       {

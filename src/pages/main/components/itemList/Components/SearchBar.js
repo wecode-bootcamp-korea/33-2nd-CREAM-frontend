@@ -25,7 +25,7 @@ export default SearchBar;
 const SearchWrapper = styled.form`
   width: 90vw;
   ${props => props.theme.flex.flexBox()}
-  padding: 3rem 0 2rem;
+  padding: 3rem 0 2rem 0;
   margin-top: 8rem;
 `;
 
