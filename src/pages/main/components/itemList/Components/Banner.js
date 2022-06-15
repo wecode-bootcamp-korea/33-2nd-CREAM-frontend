@@ -18,6 +18,8 @@ const BannerItem = styled.li`
 
 const BannerImg = styled.img`
   width: 5rem;
+  height: 5rem;
+  object-fit: contain;
 `;
 
 const BannerText = styled.p`
