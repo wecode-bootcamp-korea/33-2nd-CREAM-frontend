@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Item = ({ productNameEn, productNameKr, price, src }) => {
+const Item = ({ eng_name, kor_name, price, thumbnail_url }) => {
   const getRandomNumber = max => {
     return (Math.random() * max).toFixed(1);
   };
 
   return (
     <ItemComponent>
-      <ItemImg src={src} />
+      <ItemImg src={thumbnail_url} />
       <ItemTitle>
         <Description>
-          <ItemNameEn>{productNameEn}</ItemNameEn>
-          <ItemNameKr>{productNameKr}</ItemNameKr>
+          <ItemNameEn>{eng_name}</ItemNameEn>
+          <ItemNameKr>{kor_name}</ItemNameKr>
         </Description>
         <Amount>
           <Price>{price}원</Price>
@@ -53,6 +53,9 @@ const ItemComponent = styled.div`
 
 const ItemImg = styled.img`
   width: 14rem;
+  height: 14rem;
+  object-position: center;
+  object-fit: fill;
   background-color: ${getRandomColor};
   border-radius: 10px;
   cursor: pointer;
@@ -60,6 +63,7 @@ const ItemImg = styled.img`
 
 const ItemTitle = styled.div`
   margin-top: ${props => props.theme.margins.xl};
+  overflow: auto;
   cursor: pointer;
 `;
 

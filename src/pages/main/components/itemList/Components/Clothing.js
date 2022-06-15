@@ -2,32 +2,30 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Category = ({ categorydata, selectClothSize, filterSelect }) => {
-  const [filterTab, setFilterTab] = useState(true);
+  const [isFilterTab, setIsFilterTab] = useState(true);
 
   const { categoryList, categoryName } = categorydata;
 
   const handelCategory = () => {
-    setFilterTab(!filterTab);
+    setIsFilterTab(!isFilterTab);
   };
 
   return (
     <CategoryWrapper>
       <Title>
         <CategoryTag>{categoryName}</CategoryTag>
-        <SeeMore onClick={handelCategory}>
-          {filterTab === true ? '+' : '-'}
-        </SeeMore>
+        <SeeMore onClick={handelCategory}>{isFilterTab ? '+' : '-'}</SeeMore>
       </Title>
       <List>
         {categoryList.map(category => {
           return (
             <CheckBox
               key={category.id}
-              filterTab={filterTab}
+              isFilterTab={isFilterTab}
               onClick={() => selectClothSize(category)}
               selected={
-                filterSelect !== undefined &&
-                filterSelect.find(element => element === category.name)
+                filterSelect !== [] &&
+                filterSelect.find(element => element === category)
               }
             >
               {category.name}
@@ -70,14 +68,14 @@ const List = styled.div`
 
 const CheckBox = styled.a`
   display: ${props => (props.filterTab ? 'none' : 'block')};
-  margin: 5px;
+  margin: 0.313rem;
   border-color: ${props => props.theme.colors.gray};
   border: 1px solid #d3d3d3;
-  width: 95px;
-  border-radius: 10px;
+  width: 3.75rem;
+  border-radius: 0.625rem;
   text-align: center;
   cursor: pointer;
   background-color: ${({ selected }) => (selected ? 'black' : 'white')};
   color: ${({ selected }) => (selected ? 'white' : 'black')};
-  font-size: 14px;
+  font-size: ${props => props.theme.fontSizes.small};
 `;
