@@ -25,7 +25,7 @@
 
 `Front-End`
 
-- HTML, CSS, Javascript, React, Styled-Component
+- React, Javascript, Styled-Component
 
 `Back-End`
 
