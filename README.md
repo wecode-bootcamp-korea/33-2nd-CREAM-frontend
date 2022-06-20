@@ -91,3 +91,19 @@ https://youtu.be/v58DAx5gJzE
   - chart.js 라이브러리를 사용하여 매매 데이터를 시각화
   - 상품 구매 입찰시 선택한 사이즈와 입찰 희망 가격을 fetch POST로 전송, 판매 입찰시 해당 가격이 노출되도록 구현(금액은 해당 사이즈의 최대값으로만 노출)
   ```
+    
+
+- 매인 페이지 캐러셀 & 상품 리스트 페이지 필터링 (유지후)
+
+![ezgif com-gif-maker-3 (1)](https://user-images.githubusercontent.com/102349536/174555362-54f82679-2608-4d89-bb0d-c71a5cfbf99b.gif)
+![ezgif com-gif-maker-2](https://user-images.githubusercontent.com/102349536/174555143-852b0980-0445-4b2b-b5cd-e3d0b9c145b3.gif)
+
+  ```
+  - "react-slick" 라이브러리를 사용하여 메인 페이지에 캐러셀 기능 구현
+  - useState를 사용하여 상품 리스트 페이지 필터링 구현
+  - useLocation 사용하여 상품을 클릭했을 때 해당하는 상품의 디테일 페이지로 이동하도록 구현
+  ```
+
+
+
+
