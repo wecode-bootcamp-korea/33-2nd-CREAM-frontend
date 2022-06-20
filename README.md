@@ -105,5 +105,18 @@ https://youtu.be/v58DAx5gJzE
   ```
 
 
+- 메인 페이지 검색 & 정렬 & 더보기 기능 (장수연)
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/102025598/174558746-5f050dfc-e79f-4e64-b66a-f42bd1bf33ad.gif)
+![ezgif com-gif-maker-2](https://user-images.githubusercontent.com/102025598/174560979-0331648d-77b2-4ba2-89e8-7e6295371dd7.gif)
+
+
+ ```
+ - 메인 페이지 상단의 검색바에 입력된 검색어를 서버에 동적으로 전달하여 검색 결과를 가져오는 기능 구현
+ - 정렬 기능: 인기순, 발매순, 가격순, 프리미엄 순으로 상품들을 정렬해서 보여줄 수 있도록 드롭다운 목록을 만든 후 사용자가 선택한 옵션의 value를 서버에 전달
+ - 더보기 기능: 페이지 하단의 더보기 버튼을 누를 때마다 상품을 8개씩 더 보여줄 수 있도록 offset과 limit parameter를 사용한 pagination 기능과 scroll back to top 버튼 구현
+ ```
+
+  
 
 
